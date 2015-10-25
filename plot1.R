@@ -10,7 +10,13 @@ plot1 <- function() {
 		em[yr] = sum(EM_DATA$Emissions[EM_DATA$year == years[yr]]);
 	}
 
-	windows()
-	plot(em~years, pch='.', ylab = "Emission, tons", xlab="Year");
+	# dbg plotting
+	#windows()
+	#plt = plot(em~years, pch='.', ylab = "Emission, tons", xlab="Year", main='Total PM2.5 emission across USA');
+	#lines(em~years);
+	
+	png(filename='plot1.png');
+	plt = plot(em~years, pch='.', ylab = "Emission, tons", xlab="Year", main='Total PM2.5 emission across USA');
 	lines(em~years);
+	dev.off();
 }

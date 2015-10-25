@@ -11,7 +11,13 @@ plot2 <- function() {
 		em[yr] = sum(EM_DATA$Emissions[idxs]);
 	}
 
-	windows()
-	plot(em~years, pch='.', ylab = "Emission in Baltimore city, tons", xlab="Year");
+	# dbg plotting
+	#windows()
+	#plot(em~years, pch='.', ylab = "Emission, tons", xlab="Year", main='Total PM2.5 emission in Baltimore city');
+	#lines(em~years);
+	
+	png('plot2.png');
+	plot(em~years, pch='.', ylab = "Emission, tons", xlab="Year", main='Total PM2.5 emission in Baltimore city');
 	lines(em~years);
+	dev.off();
 }

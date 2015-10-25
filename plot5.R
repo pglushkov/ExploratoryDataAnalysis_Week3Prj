@@ -24,9 +24,15 @@ plot5 <- function() {
 		em[yr] = total_em;
 	}
 
-	windows()
+	# dbg plotting
+	#windows()
+	#plot(em~years, pch='.', ylab = "Emission, tons", xlab="Year", main='Total emission from motors in Baltimore City');
+	#lines(em~years);
+	
+	png('plot5.png');
 	plot(em~years, pch='.', ylab = "Emission, tons", xlab="Year", main='Total emission from motors in Baltimore City');
 	lines(em~years);
+	dev.off();
 }
 
 has_to_do_with_motor <- function(le_string) {

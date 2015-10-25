@@ -35,11 +35,20 @@ plot6 <- function() {
 	print(em_balt);
 	print(em_la);
 
-	windows()
+	# dbg plotting
+	#windows()
+	#plot(em_balt~years, pch='.', ylab = "Emission, tons", xlab="Year", main='Total emission from motors', ylim=range(c(em_balt, em_la)) );
+	#lines(em_balt~years, col = 'black');
+	#lines(em_la~years, col = 'red');
+    #legend("topleft", c("Baltimore", "LA"), col = c("black", "red"), lty=c(1, 1) );
+	  
+	png('plot6.png');
 	plot(em_balt~years, pch='.', ylab = "Emission, tons", xlab="Year", main='Total emission from motors', ylim=range(c(em_balt, em_la)) );
 	lines(em_balt~years, col = 'black');
 	lines(em_la~years, col = 'red');
-      legend("topleft", c("Baltimore", "LA"), col = c("black", "red"), lty=c(1, 1) );
+    legend("topleft", c("Baltimore", "LA"), col = c("black", "red"), lty=c(1, 1) );
+
+	dev.off();
 }
 
 has_to_do_with_motor <- function(le_string) {

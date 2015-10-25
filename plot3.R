@@ -29,8 +29,14 @@ plot3 <- function() {
 	}
 
 	# make the dataset from calculated columns
-      final_data = data.frame(Year = yrs_final, EmissionType = em_types_final, Emission=ems);
+    final_data = data.frame(Year = yrs_final, EmissionType = em_types_final, Emission=ems);
 
-	qplot(Year, Emission, data = final_data, color = EmissionType, geom = 'line',
-			main='PM2.5 emission level in Baltimore city');
+	# dbg plotting
+	#qplot(Year, Emission, data = final_data, color = EmissionType, geom = 'line',
+	#		main='PM2.5 emission level in Baltimore city by source type');
+			
+	png('plot3.png');
+	print(qplot(Year, Emission, data = final_data, color = EmissionType, geom = 'line',
+			main='PM2.5 emission level in Baltimore city by source type'));
+	dev.off();
 }
